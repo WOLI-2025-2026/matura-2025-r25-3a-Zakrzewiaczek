@@ -14,7 +14,7 @@ echo "$(pwd)"
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-RESOLVED="$REPO_ROOT/src/$FILE"           # plik od studenta
+RESOLVED="$REPO_ROOT/src/wyniki/$FILE"           # plik od studenta
 EXPECTED="$SCRIPT_DIR/expected/$FILE"     # wzorzec
 
 if [[ ! -f "$RESOLVED" ]]; then
