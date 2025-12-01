@@ -1,24 +1,25 @@
 # f = open('zalaczniki-2025/symbole.txt')
 # content = f.read()
 
-# def zad1():
-    # with open('/workspaces/matura-2025-r25-3a-Zakrzewiaczek/src/wyniki/wynik2_1.txt', 'w') as f: f.write('\n'.join([elem for elem in content.split('\n') if (elem[::-1] == elem and elem != '')]))
+def zad1():
+    # w tablicy `nwd_liczb` mamy zapisane NWD dla każdego przesunięcia
+    with open('/workspaces/matura-2025-r25-3a-Zakrzewiaczek/src/wyniki/wynik3_1.txt', 'w') as f: f.write(f'{(punkty := [(abs(int(x)), abs(int(y))) for x, y in (line.split() for line in open('zalaczniki-2025/dron.txt').read().splitlines())]) and ""}{(nwd_liczb := [((a + b) if (a == 0 or b == 0) else [x for x in range(min(a, b), 0, -1) if a % x == 0 and b % x == 0][0]) for a, b in punkty]) and ""}{len([x for x in nwd_liczb if x > 1])}')
 
-# def zad2():
-    # with open('/workspaces/matura-2025-r25-3a-Zakrzewiaczek/src/wyniki/wynik2_2.txt', 'w') as f: f.write(f'{str((tablica := [list(elem) for elem in content.split('\n')])[0:0]).replace('[]', '')}{len(wynik := [(y+1, x+1) for y in range(1, len(tablica) - 2) for x in range(1, len(tablica[0]) - 1) if len(set(tablica[b][a] for a, b in [(x-1,y-1),(x,y-1),(x+1,y-1),(x-1,y),(x,y),(x+1,y),(x-1,y+1),(x,y+1),(x+1,y+1)])) == 1])} {' '.join(f'{x} {y}' for x, y in wynik)}')
+def zad2():
+    input_pts = [(int(x), int(dy)) for x, dy in (line.split() for line in open('zalaczniki-2025/dron.txt').read().splitlines())]
+    (lx, ldy) = zip(*input_pts)
+    pts = [(sum(lx[:i+1]), sum(ldy[:i+1])) for i in range(len(input_pts))]
+    # print(len([' ' for x, y in pts if (x > 0 and x < 5000 and y > 0 and y < 5000)]))
 
-# def zad3():
-    # with open('/workspaces/matura-2025-r25-3a-Zakrzewiaczek/src/wyniki/wynik2_3.txt', 'w') as f: f.write(f'{(output := max([(int(elem.replace('o','0').replace('+','1').replace('*','2'), 3), elem) for elem in content.split('\n') if elem.strip()], key=lambda x: x[0]))[0]} {output[1]}')
 
-# def zad4():
-    # with open('/workspaces/matura-2025-r25-3a-Zakrzewiaczek/src/wyniki/wynik2_4.txt', 'w') as f: f.write(f'{str((to_base3 := lambda n: '' if n == 0 else to_base3(n // 3) + str(n % 3)))[0].replace('<', '')}{(output := sum([int(elem.replace('o','0').replace('+','1').replace('*','2'), 3) for elem in content.split('\n') if elem.strip()]))} {to_base3(output).replace('0','o').replace('1','+').replace('2','*')}')
+    tablica = [1, 2, 3, 4, 5, 6]
 
-def wszystkie():
-    [(lambda i: (f := open(f'/workspaces/matura-2025-r25-3a-Zakrzewiaczek/src/wyniki/wynik2_{i+1}.txt','w')).write(str([((content := open("zalaczniki-2025/symbole.txt").read())[0].replace('+','')) + ('\n'.join([elem for elem in content.split('\n') if (elem[::-1] == elem and elem != '')])), (f'{str((tablica := [list(elem) for elem in content.split('\n')])[0:0]).replace('[]', '')}{len(wynik := [(y+1, x+1) for y in range(1, len(tablica) - 2) for x in range(1, len(tablica[0]) - 1) if len(set(tablica[b][a] for a, b in [(x-1,y-1),(x,y-1),(x+1,y-1),(x-1,y),(x,y),(x+1,y),(x-1,y+1),(x,y+1),(x+1,y+1)])) == 1])} {' '.join(f'{x} {y}' for x, y in wynik)}'), (f'{(output := max([(int(elem.replace('o','0').replace('+','1').replace('*','2'), 3), elem) for elem in content.split('\n') if elem.strip()], key=lambda x: x[0]))[0]} {output[1]}'), (f'{str((to_base3 := lambda n: '' if n == 0 else to_base3(n // 3) + str(n % 3)))[0].replace('<', '')}{(output := sum([int(elem.replace('o','0').replace('+','1').replace('*','2'), 3) for elem in content.split('\n') if elem.strip()]))} {to_base3(output).replace('0','o').replace('1','+').replace('2','*')}')][i])) or f.close())(i) for i in range(4)]
+    print([])
+
+
+# def wszystkie():
     
 # zad1()
-# zad2()
-# zad3()
-# zad4()
+zad2()
 
-wszystkie()
+# wszystkie()
